@@ -71,7 +71,7 @@ $NamesUsed = @()
 
 
 # Function for creating new active directory users for a specified department. Inspired from https://gitlab.com/erikhje/heat-mono/-/blob/master/scripts/CreateUserCSV.ps1.
-function New-ADUsers {	
+function New-ADUsersDepartment {	
 	# The function takes the amount of users to create, which department they belong to, and two lists of givennames and surnames to choose from, as paramters:
 	param([int]$Amount, [string]$DepartmentDN, [int]$DepartmentNum, [string[]]$GivenNames, [string[]]$Surnames)
 
@@ -133,11 +133,11 @@ function New-ADUsers {
 Write-Output 'DisplayName;Department;Password' > userPasswords.csv
 
 # Create users for each department with the Create-Users function: 
-New-ADUsers -Amount 10 -DepartmentDN $DepartmentDNs.Adm -DepartmentNum $DepartmentNums.Adm -GivenNames $NorwegianGN -Surnames $NorwegianSN
-New-ADUsers -Amount 5 -DepartmentDN $DepartmentDNs.IT -DepartmentNum $DepartmentNums.IT -GivenNames $IndianGN -Surnames $IndianSN
-New-ADUsers -Amount 2 -DepartmentDN $DepartmentDNs.HR -DepartmentNum $DepartmentNums.HR -GivenNames $NorwegianGN -Surnames $NorwegianSN
-New-ADUsers -Amount 20 -DepartmentDN $DepartmentDNs.Prog -DepartmentNum $DepartmentNums.Prog -GivenNames $IndianGN -Surnames $IndianSN
-New-ADUsers -Amount 15 -DepartmentDN $DepartmentDNs.Animators -DepartmentNum $DepartmentNums.Animators -GivenNames $NorwegianGN -Surnames $NorwegianSN
-New-ADUsers -Amount 10 -DepartmentDN $DepartmentDNs.Advertising -DepartmentNum $DepartmentNums.Advertising -GivenNames $NorwegianGN -Surnames $NorwegianSN
-New-ADUsers -Amount 5 -DepartmentDN $DepartmentDNs.PR -DepartmentNum $DepartmentNums.PR -GivenNames $NorwegianGN $NorwegianSN -Surnames
+New-ADUserDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Adm -DepartmentNum $DepartmentNums.Adm -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.IT -DepartmentNum $DepartmentNums.IT -GivenNames $IndianGN -Surnames $IndianSN
+New-ADUsersDepartment -Amount 2 -DepartmentDN $DepartmentDNs.HR -DepartmentNum $DepartmentNums.HR -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 20 -DepartmentDN $DepartmentDNs.Prog -DepartmentNum $DepartmentNums.Prog -GivenNames $IndianGN -Surnames $IndianSN
+New-ADUsersDepartment -Amount 15 -DepartmentDN $DepartmentDNs.Animators -DepartmentNum $DepartmentNums.Animators -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Advertising -DepartmentNum $DepartmentNums.Advertising -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.PR -DepartmentNum $DepartmentNums.PR -GivenNames $NorwegianGN $NorwegianSN -Surnames
 
