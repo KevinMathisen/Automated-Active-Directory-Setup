@@ -67,7 +67,7 @@ $DepartmentNums = @{
 	Adm 		= '0005'
 }
 # Because Names for users have to be unique, keep track of used names:
-$NamesUsed = @()
+$Global:NamesUsed = @()
 
 
 # Function for creating new active directory users for a specified department. Inspired from https://gitlab.com/erikhje/heat-mono/-/blob/master/scripts/CreateUserCSV.ps1.
