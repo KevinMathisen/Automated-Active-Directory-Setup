@@ -120,8 +120,7 @@ function New-ADUsersDepartment {
 			ChangePasswordAtLogon 	= $False
 		}
 
-		# New-ADUser @NewUserArg
-		Write-Output “$($NewUserArg.DisplayName);$($NewUserArg.Department);$Password”
+		New-ADUser @NewUserArg
 
 		# Write user information to userPassword document:
 		Write-Output '$($NewUserArg.DisplayName);$($NewUserArg.Department);$Password' >> userPasswords.csv
@@ -140,5 +139,3 @@ New-ADUsersDepartment -Amount 20 -DepartmentDN $DepartmentDNs.Prog -DepartmentNu
 New-ADUsersDepartment -Amount 15 -DepartmentDN $DepartmentDNs.Animators -DepartmentNum $DepartmentNums.Animators -GivenNames $NorwegianGN -Surnames $NorwegianSN 
 New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Advertising -DepartmentNum $DepartmentNums.Advertising -GivenNames $NorwegianGN -Surnames $NorwegianSN 
 New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.PR -DepartmentNum $DepartmentNums.PR -GivenNames $NorwegianGN -Surnames $NorwegianSN 
-
-Write-Output $NamesUsed
