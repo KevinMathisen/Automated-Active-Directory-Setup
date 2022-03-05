@@ -1,24 +1,26 @@
 # 50 Unique norwegien given names:
 # From https://gitlab.com/erikhje/heat-mono/-/blob/master/scripts/CreateUserCSV.ps1
-$NorwegianGN = @("Nora","Emma","Ella","Maja","Olivia","Emilie","Sofie","Leah",
-"Sofia","Ingrid","Frida","Sara","Tiril","Selma","Ada","Hedda",
-"Amalie","Anna","Alma","Eva","Mia","Thea","Live","Ida","Astrid",
-"Ellinor","Vilde","Linnea","Iben","Aurora","Mathilde","Jenny",
-"Tuva","Julie","Oda","Sigrid","Amanda","Lilly","Hedvig",
-"Victoria","Amelia","Josefine","Agnes","Solveig","Saga","Marie",
-"Eline","Oline","Maria","Hege")
+$NorwegianGN = @('Nora', 'Emma', 'Ella', 'Maja', 'Olivia', 'Emilie', 
+'Sofie', 'Leah', 'Sofia', 'Ingrid', 'Frida', 'Sara', 
+'Tiril', 'Selma', 'Ada', 'Hedda', 'Amalie', 'Anna', 
+'Alma', 'Eva', 'Mia', 'Thea', 'Live', 'Ida', 
+'Astrid', 'Ellinor', 'Vilde', 'Linnea', 'Iben', 'Aurora', 
+'Mathilde', 'Jenny', 'Tuva', 'Julie', 'Oda', 'Sigrid', 
+'Amanda', 'Lilly', 'Hedvig', 'Victoria', 'Amelia', 'Josefine', 
+'Agnes', 'Solveig', 'Saga', 'Marie', 'Eline', 'Oline', 
+'Maria', 'Hege')
 
 # 50 Unique norwegian surnames:
 # From https://gitlab.com/erikhje/heat-mono/-/blob/master/scripts/CreateUserCSV.ps1
-$NorwegianSN = @("Hansen","Johansen","Olsen","Larsen","Andersen","Pedersen",
-"Nilsen","Kristiansen","Jensen","Karlsen","Johnsen","Pettersen",
-"Eriksen","Berg","Haugen","Hagen","Johannessen","Andreassen",
-"Jacobsen","Dahl","Jørgensen","Henriksen","Lund","Halvorsen",
-"Sørensen","Jakobsen","Moen","Gundersen","Iversen","Strand",
-"Solberg","Svendsen","Eide","Knutsen","Martinsen","Paulsen",
-"Bakken","Kristoffersen","Mathisen","Lie","Amundsen","Nguyen",
-"Rasmussen","Ali","Lunde","Solheim","Berge","Moe","Nygård",
-"Bakke")
+$NorwegianSN = @('Hansen', 'Johansen', 'Olsen', 'Larsen', 'Andersen', 'Pedersen', 
+'Nilsen', 'Kristiansen', 'Jensen', 'Karlsen', 'Johnsen', 'Pettersen', 
+'Eriksen', 'Berg', 'Haugen', 'Hagen', 'Johannessen', 'Andreassen', 
+'Jacobsen', 'Dahl', 'Jørgensen', 'Henriksen', 'Lund', 'Halvorsen', 
+'Sørensen', 'Jakobsen', 'Moen', 'Gundersen', 'Iversen', 'Strand', 
+'Solberg', 'Svendsen', 'Eide', 'Knutsen', 'Martinsen', 'Paulsen', 
+'Bakken', 'Kristoffersen', 'Mathisen', 'Lie', 'Amundsen', 'Nguyen', 
+'Rasmussen', 'Ali', 'Lunde', 'Solheim', 'Berge', 'Moe', 
+'Nygård', 'Bakke')
 
 # 50 Unique indian given names:
 # From https://gist.githubusercontent.com/mbejda/7f86ca901fe41bc14a63/raw/38adb475c14a3f44df9999c1541f3a72f472b30d/Indian-Male-Names.csv
@@ -46,23 +48,23 @@ $IndianSN = @('Devi', 'Singh', 'Kumar', 'Das', 'Kaur', 'Ram',
 
 # Department Distingushed names:
 $DepartmentDNs = @{ 
-	IT 			= “OU=IT,OU=AllUsers,DC=riot,DC=core”
-	Prog 		= “OU=Prog,OU=GameDev,OU=AllUsers,DC=riot,DC=core”
-	Animators 	= “OU=Animators,OU=GameDev,OU=AllUsers,DC=riot,DC=core”
-	HR 			= “OU=HR,OU=AllUsers,DC=riot,DC=core”
-	Advertising = “OU=Advertising,OU=Marketing,OU=AllUsers,DC=riot,DC=core”
-	PR 			= “OU=PR,OU=Marketing,OU=AllUsers,DC=riot,DC=core”
-	Adm 		= “OU=Adm,OU=AllUsers,DC=riot,DC=core”
+	IT 			= 'OU=IT,OU=AllUsers,DC=riot,DC=core'
+	Prog 		= 'OU=Prog,OU=GameDev,OU=AllUsers,DC=riot,DC=core'
+	Animators 	= 'OU=Animators,OU=GameDev,OU=AllUsers,DC=riot,DC=core'
+	HR 			= 'OU=HR,OU=AllUsers,DC=riot,DC=core'
+	Advertising = 'OU=Advertising,OU=Marketing,OU=AllUsers,DC=riot,DC=core'
+	PR 			= 'OU=PR,OU=Marketing,OU=AllUsers,DC=riot,DC=core'
+	Adm 		= 'OU=Adm,OU=AllUsers,DC=riot,DC=core'
 }
 # Department numbers for creating employee numbers:
 $DepartmentNums = @{
-	IT 			= “0001”
-	Prog 		= “0101”
-	Animators 	= “0102”
-	HR 			= “0003”
-	Advertising	= “0201”
-	PR 			= “0202”
-	Adm 		= “0005”
+	IT 			= '0001'
+	Prog 		= '0101'
+	Animators 	= '0102'
+	HR 			= '0003'
+	Advertising	= '0201'
+	PR 			= '0202'
+	Adm 		= '0005'
 }
 # Because Names for users have to be unique, keep track of used names: 
 $NamesUsed = @()
@@ -128,14 +130,14 @@ function New-ADUsers {
 
 
 # Write header to userPassword document: 
-Write-Output “DisplayName;Department;Password” > userPasswords.csv
+Write-Output 'DisplayName;Department;Password' > userPasswords.csv
 
 # Create users for each department with the Create-Users function: 
-New-ADUsers 10 $DepartmentDNs.Adm $DepartmentNums.Adm $NorwegianGN $NorwegianSN
-New-ADUsers 5 $DepartmentDNs.IT $DepartmentNums.IT $IndianGN $IndianSN
-New-ADUsers 2 $DepartmentDNs.HR $DepartmentNums.HR $NorwegianGN $NorwegianSN
-New-ADUsers 20 $DepartmentDNs.Prog $DepartmentNums.Prog $IndianGN $IndianSN
-New-ADUsers 15 $DepartmentDNs.Animators $DepartmentNums.Animators $NorwegianGN $NorwegianSN
-New-ADUsers 10 $DepartmentDNs.Advertising $DepartmentNums.Advertising $NorwegianGN $NorwegianSN
-New-ADUsers 5 $DepartmentDNs.PR $DepartmentNums.PR $NorwegianGN $NorwegianSN
+New-ADUsers -Amount 10 -DepartmentDN $DepartmentDNs.Adm -DepartmentNum $DepartmentNums.Adm -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsers -Amount 5 -DepartmentDN $DepartmentDNs.IT -DepartmentNum $DepartmentNums.IT -GivenNames $IndianGN -Surnames $IndianSN
+New-ADUsers -Amount 2 -DepartmentDN $DepartmentDNs.HR -DepartmentNum $DepartmentNums.HR -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsers -Amount 20 -DepartmentDN $DepartmentDNs.Prog -DepartmentNum $DepartmentNums.Prog -GivenNames $IndianGN -Surnames $IndianSN
+New-ADUsers -Amount 15 -DepartmentDN $DepartmentDNs.Animators -DepartmentNum $DepartmentNums.Animators -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsers -Amount 10 -DepartmentDN $DepartmentDNs.Advertising -DepartmentNum $DepartmentNums.Advertising -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsers -Amount 5 -DepartmentDN $DepartmentDNs.PR -DepartmentNum $DepartmentNums.PR -GivenNames $NorwegianGN $NorwegianSN -Surnames
 
