@@ -123,7 +123,7 @@ function New-ADUsersDepartment {
 		New-ADUser @NewUserArg
 
 		# Write user information to userPassword document:
-		Write-Output '$($NewUserArg.DisplayName);$($NewUserArg.Department);$Password' >> userPasswords.csv
+		Write-Output "$($NewUserArg.DisplayName);$($NewUserArg.Department);$Password" >> userPasswords.csv
 	}
 }
 
@@ -132,10 +132,11 @@ function New-ADUsersDepartment {
 Write-Output 'DisplayName;Department;Password' > userPasswords.csv
 
 # Create users for each department with the Create-Users function:
-New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Adm -DepartmentNum $DepartmentNums.Adm -GivenNames $NorwegianGN -Surnames $NorwegianSN  
-New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.IT -DepartmentNum $DepartmentNums.IT -GivenNames $IndianGN -Surnames $IndianSN 
-New-ADUsersDepartment -Amount 2 -DepartmentDN $DepartmentDNs.HR -DepartmentNum $DepartmentNums.HR -GivenNames $NorwegianGN -Surnames $NorwegianSN 
-New-ADUsersDepartment -Amount 20 -DepartmentDN $DepartmentDNs.Prog -DepartmentNum $DepartmentNums.Prog -GivenNames $IndianGN -Surnames $IndianSN 
-New-ADUsersDepartment -Amount 15 -DepartmentDN $DepartmentDNs.Animators -DepartmentNum $DepartmentNums.Animators -GivenNames $NorwegianGN -Surnames $NorwegianSN 
-New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Advertising -DepartmentNum $DepartmentNums.Advertising -GivenNames $NorwegianGN -Surnames $NorwegianSN 
-New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.PR -DepartmentNum $DepartmentNums.PR -GivenNames $NorwegianGN -Surnames $NorwegianSN 
+New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Adm -DepartmentNum $DepartmentNums.Adm -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.IT -DepartmentNum $DepartmentNums.IT -GivenNames $IndianGN -Surnames $IndianSN
+New-ADUsersDepartment -Amount 2 -DepartmentDN $DepartmentDNs.HR -DepartmentNum $DepartmentNums.HR -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 20 -DepartmentDN $DepartmentDNs.Prog -DepartmentNum $DepartmentNums.Prog -GivenNames $IndianGN -Surnames $IndianSN
+New-ADUsersDepartment -Amount 15 -DepartmentDN $DepartmentDNs.Animators -DepartmentNum $DepartmentNums.Animators -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Advertising -DepartmentNum $DepartmentNums.Advertising -GivenNames $NorwegianGN -Surnames $NorwegianSN
+New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.PR -DepartmentNum $DepartmentNums.PR -GivenNames $NorwegianGN -Surnames $NorwegianSN
+
