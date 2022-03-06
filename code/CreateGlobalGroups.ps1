@@ -80,5 +80,5 @@ $NewGroupArg = @{
 }
 
 New-AdGroup @NewGroupArg -PassThru | Add-AdGroupMember -Members $ITMembers[4]
-Add-ADPrincipalGroupMembership -Identity 'g_My Print and Server Operator Users' -MemberOf 'Print Operators','Server Operators'
+Add-ADPrincipalGroupMembership -Identity 'g_My Print and Server Operators' -MemberOf 'Print Operators','Server Operators'
 
