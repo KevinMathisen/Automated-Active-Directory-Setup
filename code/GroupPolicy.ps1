@@ -28,30 +28,27 @@ Set-Location ..
 
 # Link Group Policies from Windows 10 Security baseline to Clients:
 $OU = 'OU=Clients,DC=riot,DC=core'
-Get-GPO -Name "MSFT Internet Explorer 11 - Computer" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Internet Explorer 11 - User" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 21H2 - BitLocker" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 21H2 - Computer" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 21H2 - Credential Guard" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 21H2 - Defender Antivirus" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 21H2 - Domain Security" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows 10 21H2 - User" | New-GPLink -Target $OU
+$ClientGPOs = @('MSFT Internet Explorer 11 - Computer', 'MSFT Internet Explorer 11 - User', 
+'MSFT Windows 10 21H2 - BitLocker', 'MSFT Windows 10 21H2 - Computer', 
+'MSFT Windows 10 21H2 - Credential Guard', 'MSFT Windows 10 21H2 - Defender Antivirus', 
+'MSFT Windows 10 21H2 - Domain Security', 'MSFT Windows 10 21H2 - User')
+foreach ($GPO in $ClientGPOs) { Get-GPO -Name $GPO | New-GPLink -Target $OU }
+
 
 # Link Group Policies from Windows Server Security baseline to Domain Controller:
 $OU = 'OU=Domain Controllers,DC=riot,DC=core'
-Get-GPO -Name "MSFT Internet Explorer 11 - Computer" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Internet Explorer 11 - User" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows Server 2022 - Defender Antivirus" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows Server 2022 - Domain Controller" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows Server 2022 - Domain Security" | New-GPLink -Target $OU
+$DomainControllerGPOs = @('MSFT Internet Explorer 11 - Computer', 'MSFT Internet Explorer 11 - User', 
+'MSFT Windows Server 2022 - Defender Antivirus', 'MSFT Windows Server 2022 - Domain Controller', 
+'MSFT Windows Server 2022 - Domain Security')
+foreach ($GPO in $DomainControllerGPOs) { Get-GPO -Name $GPO | New-GPLink -Target $OU }
+
 
 # Link Group Policies from Windows Server Security baseline to Servers:
 $OU = 'OU=Servers,DC=riot,DC=core'
-Get-GPO -Name "MSFT Internet Explorer 11 - Computer" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Internet Explorer 11 - User" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows Server 2022 - Defender Antivirus" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows Server 2022 - Member Server" | New-GPLink -Target $OU
-Get-GPO -Name "MSFT Windows Server 2022 - Domain Security" | New-GPLink -Target $OU
+$ServerGPOs = @('MSFT Internet Explorer 11 - Computer', 'MSFT Internet Explorer 11 - User', 
+'MSFT Windows Server 2022 - Defender Antivirus', 'MSFT Windows Server 2022 - Member Server', 
+'MSFT Windows Server 2022 - Domain Security')
+foreach ($GPO in $ServerGPOs) { Get-GPO -Name $GPO | New-GPLink -Target $OU }
 
 
 
