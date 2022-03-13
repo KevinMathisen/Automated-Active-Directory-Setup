@@ -1,3 +1,6 @@
+# This script creates users with random names and passwords for the various departments.
+# It also saves the Users Displayname, Department, and Password in a txt file.
+
 # 50 Unique norwegien given names:
 # From https://gitlab.com/erikhje/heat-mono/-/blob/master/scripts/CreateUserCSV.ps1
 $NorwegianGN = @('Nora', 'Emma', 'Ella', 'Maja', 'Olivia', 'Emilie',
@@ -123,7 +126,7 @@ function New-ADUsersDepartment {
 		New-ADUser @NewUserArg
 
 		# Write user information to userPassword document:
-		Write-Output "$($NewUserArg.DisplayName);$($NewUserArg.Department);$Password" >> userPasswords.csv
+		Write-Output "$DisplayName;$Department;$Password" >> userPasswords.csv
 	}
 }
 
@@ -131,7 +134,7 @@ function New-ADUsersDepartment {
 # Write header to userPassword document:
 Write-Output 'DisplayName;Department;Password' > userPasswords.csv
 
-# Create users for each department with the Create-Users function:
+# Create users for each department with the New-ADUsersDepartment function:
 New-ADUsersDepartment -Amount 10 -DepartmentDN $DepartmentDNs.Adm -DepartmentNum $DepartmentNums.Adm -GivenNames $NorwegianGN -Surnames $NorwegianSN
 New-ADUsersDepartment -Amount 5 -DepartmentDN $DepartmentDNs.IT -DepartmentNum $DepartmentNums.IT -GivenNames $IndianGN -Surnames $IndianSN
 New-ADUsersDepartment -Amount 2 -DepartmentDN $DepartmentDNs.HR -DepartmentNum $DepartmentNums.HR -GivenNames $NorwegianGN -Surnames $NorwegianSN
