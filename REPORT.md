@@ -2,19 +2,19 @@
 
 To complete the DCSG1005 Project I had to overcome a lot of challenges and problems. This ranged from simple syntax errors corrected by script analyzer to problems requiring several hours of browsing stack overflow before finding a solution.
 
----
+
 
 ## Create OUs
 
 Creating the Organizational Units was quite easy. I did have to modify my organizational chart when I understood that I probably wouldn't need 20 departments, but apart from that, there were no real problems. 
 
----
+
 
 ## Join Computers
 
 Probably the easiest script to write, no problems. 
 
----
+
 
 ## Create Users
 
@@ -43,7 +43,7 @@ Scriptanalyzers complaining over using `ConvertTo-SecureString` with plaintext d
 
 The script not supporting *ShouldProcess* is a fair critique. It could be nice to ask the user for confirmation when creating new users. However, I tried to implement a solution, but it resulted in having to say yes when creating every single user, which quickly became tiresome when you are creating 60+ accounts. Therefore I decided to not implement it, even though script analyzer wasnt happy.  
  
----
+
 
 ## Create global groups
 
@@ -59,7 +59,7 @@ As we had only learned how to add groups to local groups from the lectures, I ha
 
 The solution was using `Add-ADPrincipalGroupsMembership` ([Microsoft](https://docs.microsoft.com/en-us/powershell/module/activedirectory/add-adprincipalgroupmembership?view=windowsserver2022-ps)) which let me add global groups to the active directory domain local groups. 
 
----
+
 
 ## Group Policy
 
@@ -76,7 +76,7 @@ As I wanted the script to run without any GUIs popping up I had to create a grou
 
 To solve this I used Group Policy Management Console ([Microsoft; Export a GPO to a file](https://docs.microsoft.com/en-us/microsoft-desktop-optimization-pack/agpm/export-a-gpo-to-a-file#:~:text=To%20export%20a%20GPO%20to,and%20then%20click%20Export%20to.)) and the `Import-GPO` command ([Microsoft; Import-GPO](https://docs.microsoft.com/en-us/powershell/module/grouppolicy/import-gpo?view=windowsserver2022-ps)). 
 
----
+
 
 ## Conclusion
 
